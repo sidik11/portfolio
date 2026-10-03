@@ -1,7 +1,7 @@
 /* ==========================================================================
    MODERN CYBER PUNCH DESIGN SYSTEM — MD SIDIK PORTFOLIO
    Theme: Stealth Obsidian / Electric Neon Crimson / Glassmorphism
-   Ultra Animative & Highly Interactive
+   Ultra Animative: Left/Right/Scale Cinematic Slide Animations + 100% Responsive
    ========================================================================== */
 
 :root {
@@ -40,11 +40,12 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 85px;
   background: var(--bg-black);
   color: var(--text-main);
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 body {
@@ -52,6 +53,7 @@ body {
   background: var(--bg-black);
   position: relative;
   min-height: 100vh;
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -356,14 +358,28 @@ body {
   border-radius: 6px;
   cursor: pointer;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
+  z-index: 600;
 }
 
 .mobile-toggle span {
-  width: 20px;
+  display: block;
+  width: 22px;
   height: 2px;
   background: #fff;
-  transition: 0.3s;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Mobile Drawer */
@@ -375,6 +391,7 @@ body {
   bottom: 0;
   background: rgba(6, 5, 8, 0.98);
   backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   z-index: 490;
   padding: 30px 24px;
   display: flex;
@@ -399,6 +416,12 @@ body {
   text-decoration: none;
   padding: 12px 0;
   border-bottom: 1px solid var(--line);
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.mobile-item:hover {
+  color: var(--red-punch);
+  padding-left: 8px;
 }
 
 /* ==========================================================================
@@ -541,9 +564,9 @@ body {
 
 .title-main {
   display: block;
-  font-size: clamp(52px, 7.2vw, 98px);
+  font-size: clamp(48px, 6.8vw, 94px);
   font-weight: 900;
-  line-height: 0.92;
+  line-height: 0.94;
   letter-spacing: -0.055em;
   color: #ffffff;
 }
@@ -1020,9 +1043,9 @@ body {
 }
 
 .section-title {
-  font-size: clamp(40px, 5.5vw, 68px);
+  font-size: clamp(38px, 5.2vw, 68px);
   font-weight: 900;
-  line-height: 0.95;
+  line-height: 0.96;
   letter-spacing: -0.045em;
   color: #ffffff;
 }
@@ -1730,6 +1753,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 170px;
+  overflow: hidden;
 }
 
 .metric-img-wrap img {
@@ -1746,6 +1770,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .streak-img {
@@ -1916,6 +1941,7 @@ body {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--line);
+  flex-shrink: 0;
 }
 
 .m-label {
@@ -1931,6 +1957,7 @@ body {
   font-size: 13px;
   font-weight: 600;
   color: #ffffff;
+  word-break: break-all;
 }
 
 .m-link {
@@ -2069,31 +2096,58 @@ body {
 }
 
 /* ==========================================================================
-   ANIMATIONS & REVEALS
+   DIRECTIONAL CINEMATIC ENTRANCE ANIMATIONS (SLIDE LEFT / RIGHT / UP / SCALE)
    ========================================================================== */
-.reveal {
+.reveal-left,
+.reveal-right,
+.reveal-up,
+.reveal-scale {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal.show {
+/* Slide in from Left */
+.reveal-left {
+  transform: translateX(-70px);
+}
+
+/* Slide in from Right */
+.reveal-right {
+  transform: translateX(70px);
+}
+
+/* Slide in from Bottom/Up */
+.reveal-up {
+  transform: translateY(50px);
+}
+
+/* Pop / Scale In */
+.reveal-scale {
+  transform: scale(0.92) translateY(25px);
+}
+
+/* When In View */
+.reveal-left.show,
+.reveal-right.show,
+.reveal-up.show,
+.reveal-scale.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0, 0) scale(1);
 }
 
 .delay {
-  transition-delay: 0.15s;
+  transition-delay: 0.18s;
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN BREAKPOINTS
+   THOROUGH RESPONSIVE DESIGN (DESKTOP, TABLET, MOBILE)
    ========================================================================== */
-@media (max-width: 1080px) {
+@media (max-width: 1100px) {
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 130px;
-    gap: 60px;
+    padding-top: 135px;
+    gap: 50px;
   }
 
   .hero-visual {
@@ -2127,7 +2181,7 @@ body {
   }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 860px) {
   .nav-links {
     display: none;
   }
@@ -2166,47 +2220,136 @@ body {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .topbar {
-    padding: 0 20px;
+    padding: 0 18px;
+    height: 70px;
+  }
+
+  .mobile-nav {
+    top: 70px;
   }
 
   .hero {
-    padding: 115px 20px 60px;
+    padding: 105px 18px 50px;
+    gap: 40px;
+  }
+
+  .title-sub {
+    font-size: 13px;
+    letter-spacing: 0.12em;
   }
 
   .hero-title .title-main {
-    font-size: clamp(44px, 14vw, 68px);
+    font-size: clamp(38px, 12vw, 56px);
+    line-height: 1;
+  }
+
+  .typing-container {
+    font-size: 13px;
+    padding: 5px 10px;
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .hero-lead {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-actions a {
+    width: 100%;
   }
 
   .cyber-portrait-card {
-    width: 290px;
+    width: 100%;
+    max-width: 320px;
   }
 
   .avatar-frame {
-    height: 300px;
+    height: 310px;
   }
+
+  .orbit-large { width: 360px; height: 360px; }
+  .orbit-medium { width: 290px; height: 290px; }
+  .orbit-small { width: 230px; height: 230px; }
 
   .floating-tech-card {
     right: 0;
     bottom: -15px;
-    padding: 10px 12px;
+    padding: 8px 12px;
   }
 
   .scroll-cue {
     display: none;
   }
 
+  .strip-container {
+    padding: 24px 18px;
+    gap: 18px;
+  }
+
+  .stat-val {
+    font-size: 28px;
+  }
+
   .page-section {
-    padding: 90px 20px;
+    padding: 80px 18px;
+  }
+
+  .section-title {
+    font-size: 34px;
   }
 
   .bento-card, .project-featured-card, .contact-card-master, .repo-banner {
-    padding: 24px;
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  .bio-grid {
+    grid-template-columns: 1fr;
   }
 
   .terminal-body {
-    padding: 18px 14px;
+    padding: 16px 12px;
     font-size: 11px;
+  }
+
+  .t-out {
+    padding-left: 10px;
+  }
+
+  .project-featured-card .proj-title {
+    font-size: 22px;
+  }
+
+  .proj-highlights {
+    font-size: 11px;
+  }
+
+  .metric-visual-card {
+    padding: 16px;
+  }
+
+  .streak-banner {
+    padding: 16px;
+  }
+
+  .contact-title {
+    font-size: 30px;
+  }
+
+  .cta-box {
+    padding: 20px;
+  }
+
+  .site-footer {
+    padding: 45px 18px 30px;
   }
 }

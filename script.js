@@ -1,6 +1,7 @@
 // ==========================================================================
 // SCRIPT.JS — INTERACTIVE & ANIMATIVE ENGINE FOR MD SIDIK PORTFOLIO
-// Particle Canvas, Dynamic Typing, 3D Perspective Tilt, Smooth Cursor Physics
+// Particle Canvas, Dynamic Typing, 3D Perspective Tilt, Smooth Cursor Physics,
+// Directional Cinematic Slide Observer (Left, Right, Up, Scale)
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -166,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const glow = document.getElementById('cursorGlow');
   const trail = document.getElementById('cursorTrail');
 
-  if (glow && trail) {
+  if (glow && trail && window.innerWidth > 960) {
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
     let currentX = mouseX;
@@ -194,8 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCursor();
   }
 
-  // 5. Scroll Reveal Observer with Count-Up Trigger
-  const revealElements = document.querySelectorAll('.reveal');
+  // 5. Directional Cinematic Slide Observer (reveal-left, reveal-right, reveal-up, reveal-scale)
+  const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up, .reveal-scale, .reveal');
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -227,12 +228,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     },
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
   );
 
   revealElements.forEach((el) => revealObserver.observe(el));
 
-  // 6. 3D Perspective Tilt on Cards
+  // 6. 3D Perspective Tilt on Cards (Desktop only)
   const tiltCards = document.querySelectorAll('.tilt');
   tiltCards.forEach((card) => {
     card.addEventListener('pointermove', (e) => {
@@ -268,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
           card.style.opacity = '0';
           setTimeout(() => {
             card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
+            card.style.transform = 'translate(0, 0) scale(1)';
           }, 40);
         } else {
           card.style.display = 'none';
@@ -285,6 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileToggle && mobileNav) {
     mobileToggle.addEventListener('click', () => {
       mobileNav.classList.toggle('open');
+      mobileToggle.classList.toggle('active');
       const isOpen = mobileNav.classList.contains('open');
       mobileToggle.setAttribute('aria-expanded', isOpen);
     });
@@ -292,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileItems.forEach((item) => {
       item.addEventListener('click', () => {
         mobileNav.classList.remove('open');
+        mobileToggle.classList.remove('active');
       });
     });
   }

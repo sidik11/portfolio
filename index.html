@@ -25,7 +25,7 @@
   <div class="ambient-glow glow-2"></div>
   <div class="ambient-glow glow-3"></div>
 
-  <!-- Cyber Grid Lines -->
+  <!-- Cyber Scanline -->
   <div class="cyber-scanline"></div>
 
   <!-- Navigation Bar -->
@@ -67,7 +67,7 @@
     <a href="#experience" class="mobile-item">05 // SYSTEM PIPELINE</a>
     <a href="#contact" class="mobile-item">06 // GET IN TOUCH</a>
     <div class="mobile-foot">
-      <a class="btn-primary w-full" href="https://www.linkedin.com/in/md-sidik-2428a0325" target="_blank" rel="noreferrer">
+      <a class="btn-linkedin w-full" href="https://www.linkedin.com/in/md-sidik-2428a0325" target="_blank" rel="noreferrer">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         <span>LINKEDIN PROFILE ↗</span>
       </a>
@@ -77,7 +77,7 @@
   <main>
     <!-- HERO SECTION -->
     <section id="home" class="hero">
-      <div class="hero-content reveal">
+      <div class="hero-content reveal-left">
         <div class="hero-tagline">
           <span class="tag-status"><i class="dot-green"></i> 36+ LIVE REPOSITORIES</span>
           <span class="tag-sep">//</span>
@@ -140,7 +140,7 @@
         </div>
       </div>
 
-      <div class="hero-visual reveal delay">
+      <div class="hero-visual reveal-right">
         <div class="hud-orbit orbit-large"></div>
         <div class="hud-orbit orbit-medium"></div>
         <div class="hud-orbit orbit-small"></div>
@@ -200,22 +200,22 @@
     <!-- STATS STRIP -->
     <section class="stats-strip">
       <div class="strip-container">
-        <div class="stat-item reveal">
+        <div class="stat-item reveal-left">
           <div class="stat-val count-up" data-target="36">0<span>+</span></div>
           <div class="stat-label">PUBLIC REPOSITORIES</div>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item reveal delay">
+        <div class="stat-item reveal-scale">
           <div class="stat-val">B.TECH<span> CSE</span></div>
           <div class="stat-label">COMPUTER SCIENCE ENG.</div>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item reveal delay">
+        <div class="stat-item reveal-scale">
           <div class="stat-val count-up" data-target="100">0<span>%</span></div>
           <div class="stat-label">SHIPPED CODE QUALITY</div>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item reveal delay">
+        <div class="stat-item reveal-right">
           <div class="stat-val text-punch">FULL<span>-STACK</span></div>
           <div class="stat-label">END-TO-END CAPABILITY</div>
         </div>
@@ -224,13 +224,13 @@
 
     <!-- ABOUT SECTION -->
     <section id="about" class="page-section">
-      <div class="section-header reveal">
+      <div class="section-header reveal-up">
         <div class="section-kicker"><span class="kicker-num">01</span> ARCHITECTURE &amp; ORIGIN</div>
         <h2 class="section-title">CODE → BUILD → TEST →<br><span class="text-punch glow-text">IMPROVE → REPEAT.</span></h2>
       </div>
 
       <div class="about-layout">
-        <article class="card bento-card about-bio tilt reveal">
+        <article class="card bento-card about-bio tilt reveal-left">
           <div class="card-pill">ENGINEER DOSSIER</div>
           <h3 class="card-heading">Practical software engineered for actual users.</h3>
           <p class="card-text">
@@ -260,7 +260,7 @@
           </div>
         </article>
 
-        <article class="card bento-card about-capabilities tilt reveal delay">
+        <article class="card bento-card about-capabilities tilt reveal-right">
           <div class="card-pill">WHAT I BUILD</div>
           <div class="capability-list">
             <div class="cap-item">
@@ -296,7 +296,7 @@
       </div>
 
       <!-- Live Interactive Terminal -->
-      <div class="terminal-card tilt reveal">
+      <div class="terminal-card tilt reveal-up">
         <div class="terminal-bar">
           <div class="terminal-dots">
             <span></span><span></span><span></span>
@@ -318,13 +318,13 @@
 
     <!-- SKILLS SECTION -->
     <section id="skills" class="page-section">
-      <div class="section-header reveal">
+      <div class="section-header reveal-up">
         <div class="section-kicker"><span class="kicker-num">02</span> TECH STACK &amp; ARSENAL</div>
         <h2 class="section-title">THE PRODUCTION<br><span class="text-punch glow-text">TOOLKIT.</span></h2>
       </div>
 
       <!-- Filter Controls -->
-      <div class="skills-filter-tags reveal">
+      <div class="skills-filter-tags reveal-up">
         <button class="filter-btn active" data-filter="all">ALL TECHNOLOGIES</button>
         <button class="filter-btn" data-filter="frontend">FRONTEND &amp; UI</button>
         <button class="filter-btn" data-filter="backend">BACKEND &amp; APIS</button>
@@ -332,9 +332,9 @@
         <button class="filter-btn" data-filter="workflow">DEV &amp; DEPLOYMENT</button>
       </div>
 
-      <!-- Interactive Skills Deck -->
+      <!-- Interactive Skills Deck (Alternating Slide Animations) -->
       <div class="skills-deck">
-        <div class="skill-card tilt reveal" data-category="frontend">
+        <div class="skill-card tilt reveal-left" data-category="frontend">
           <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-01</span>
@@ -347,7 +347,7 @@
           <div class="skill-tags"><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>HTML5 / CSS3</span></div>
         </div>
 
-        <div class="skill-card tilt reveal delay" data-category="frontend">
+        <div class="skill-card tilt reveal-scale" data-category="frontend">
           <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-02</span>
@@ -360,7 +360,7 @@
           <div class="skill-tags"><span>ES6+</span><span>Async/Await</span><span>DOM API</span><span>Modern Web</span></div>
         </div>
 
-        <div class="skill-card tilt reveal delay" data-category="backend">
+        <div class="skill-card tilt reveal-right" data-category="backend">
           <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-03</span>
@@ -373,7 +373,7 @@
           <div class="skill-tags"><span>Node.js</span><span>Express</span><span>REST APIs</span><span>Auth</span></div>
         </div>
 
-        <div class="skill-card tilt reveal" data-category="data">
+        <div class="skill-card tilt reveal-left" data-category="data">
           <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-04</span>
@@ -386,7 +386,7 @@
           <div class="skill-tags"><span>MySQL</span><span>Relational DB</span><span>SQL Queries</span><span>Schema Design</span></div>
         </div>
 
-        <div class="skill-card tilt reveal delay" data-category="data">
+        <div class="skill-card tilt reveal-scale" data-category="data">
           <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-05</span>
@@ -399,7 +399,7 @@
           <div class="skill-tags"><span>Realtime DB</span><span>Firestore</span><span>Firebase Auth</span><span>Cloud Storage</span></div>
         </div>
 
-        <div class="skill-card tilt reveal delay" data-category="workflow">
+        <div class="skill-card tilt reveal-right" data-category="workflow">
           <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-06</span>
@@ -416,7 +416,7 @@
 
     <!-- SELECTED PROJECTS SECTION -->
     <section id="projects" class="page-section">
-      <div class="section-header reveal">
+      <div class="section-header reveal-up">
         <div class="section-kicker"><span class="kicker-num">03</span> SHOWCASE REPOSITORY ARCHIVE</div>
         <div class="title-with-cta">
           <h2 class="section-title">FEATURED<br><span class="text-punch glow-text">APPLICATIONS.</span></h2>
@@ -428,8 +428,8 @@
       </div>
 
       <div class="showcase-grid">
-        <!-- FLAGSHIP 1 -->
-        <article class="project-featured-card tilt reveal">
+        <!-- FLAGSHIP 1 (Slide from Left) -->
+        <article class="project-featured-card tilt reveal-left">
           <div class="card-shimmer"></div>
           <div class="proj-badge-top">
             <span class="proj-counter">FLAGSHIP // 01</span>
@@ -469,8 +469,8 @@
           </div>
         </article>
 
-        <!-- FLAGSHIP 2 -->
-        <article class="project-featured-card tilt reveal delay">
+        <!-- FLAGSHIP 2 (Slide from Right) -->
+        <article class="project-featured-card tilt reveal-right">
           <div class="card-shimmer"></div>
           <div class="proj-badge-top">
             <span class="proj-counter">FLAGSHIP // 02</span>
@@ -511,7 +511,7 @@
         </article>
 
         <!-- SECONDARY PROJECTS GRID -->
-        <article class="project-card tilt reveal">
+        <article class="project-card tilt reveal-left">
           <div class="p-card-top">
             <span class="p-num">03</span>
             <span class="p-type">WEB UTILITY</span>
@@ -524,7 +524,7 @@
           </div>
         </article>
 
-        <article class="project-card tilt reveal">
+        <article class="project-card tilt reveal-right">
           <div class="p-card-top">
             <span class="p-num">04</span>
             <span class="p-type">TECH PORTAL</span>
@@ -537,7 +537,7 @@
           </div>
         </article>
 
-        <article class="project-card tilt reveal">
+        <article class="project-card tilt reveal-left">
           <div class="p-card-top">
             <span class="p-num">05</span>
             <span class="p-type">DATA ENGINE</span>
@@ -550,7 +550,7 @@
           </div>
         </article>
 
-        <article class="project-card tilt reveal">
+        <article class="project-card tilt reveal-right">
           <div class="p-card-top">
             <span class="p-num">06</span>
             <span class="p-type">INTERACTIVE APP</span>
@@ -565,7 +565,7 @@
       </div>
 
       <!-- REPO ARCHIVE BANNER -->
-      <div class="repo-banner tilt reveal">
+      <div class="repo-banner tilt reveal-up">
         <div class="banner-left">
           <span class="banner-tag">ACTIVE CODE REPOSITORY</span>
           <h3>Looking for backend APIs, microservices, or full-stack builds?</h3>
@@ -582,13 +582,13 @@
 
     <!-- LIVE GITHUB METRICS SECTION -->
     <section id="github-stats" class="page-section">
-      <div class="section-header reveal">
+      <div class="section-header reveal-up">
         <div class="section-kicker"><span class="kicker-num">04</span> OPEN SOURCE METRICS</div>
         <h2 class="section-title">VERIFIED GITHUB<br><span class="text-punch glow-text">ACTIVITY.</span></h2>
       </div>
 
       <div class="metrics-grid">
-        <div class="metric-visual-card tilt reveal">
+        <div class="metric-visual-card tilt reveal-left">
           <div class="metric-card-header">
             <span>GITHUB STATS OVERVIEW</span>
             <span class="live-dot">LIVE</span>
@@ -598,7 +598,7 @@
           </div>
         </div>
 
-        <div class="metric-visual-card tilt reveal delay">
+        <div class="metric-visual-card tilt reveal-right">
           <div class="metric-card-header">
             <span>TOP CODE LANGUAGES</span>
             <span class="live-dot">LIVE</span>
@@ -610,20 +610,20 @@
       </div>
 
       <!-- GitHub Streak Banner -->
-      <div class="streak-banner tilt reveal">
+      <div class="streak-banner tilt reveal-scale">
         <img src="https://github-readme-streak-stats.herokuapp.com/?user=sidik11&theme=transparent&hide_border=true&stroke=ff2a44&ring=ff2a44&fire=ff2a44&currStreakLabel=ff2a44" alt="Sidik GitHub Streak" loading="lazy" class="streak-img">
       </div>
     </section>
 
     <!-- PIPELINE / METHODOLOGY -->
     <section id="experience" class="page-section">
-      <div class="section-header reveal">
+      <div class="section-header reveal-up">
         <div class="section-kicker"><span class="kicker-num">05</span> SYSTEM PIPELINE</div>
         <h2 class="section-title">HOW I BUILD<br><span class="text-punch glow-text">&amp; DELIVER.</span></h2>
       </div>
 
       <div class="pipeline-container">
-        <div class="pipeline-step reveal">
+        <div class="pipeline-step reveal-left">
           <div class="step-badge">STAGE 01</div>
           <div class="step-card tilt">
             <span class="step-icon">📐</span>
@@ -633,7 +633,7 @@
           </div>
         </div>
 
-        <div class="pipeline-step reveal delay">
+        <div class="pipeline-step reveal-scale">
           <div class="step-badge">STAGE 02</div>
           <div class="step-card tilt">
             <span class="step-icon">⚡</span>
@@ -643,7 +643,7 @@
           </div>
         </div>
 
-        <div class="pipeline-step reveal delay">
+        <div class="pipeline-step reveal-scale">
           <div class="step-badge">STAGE 03</div>
           <div class="step-card tilt">
             <span class="step-icon">🛡️</span>
@@ -653,7 +653,7 @@
           </div>
         </div>
 
-        <div class="pipeline-step reveal delay">
+        <div class="pipeline-step reveal-right">
           <div class="step-badge">STAGE 04</div>
           <div class="step-card tilt">
             <span class="step-icon">🚀</span>
@@ -697,7 +697,7 @@
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="page-section contact-section">
-      <div class="contact-card-master tilt reveal">
+      <div class="contact-card-master tilt reveal-scale">
         <div class="contact-left">
           <div class="section-kicker"><span class="kicker-num">06</span> GET IN TOUCH</div>
           <h2 class="contact-title">LET'S BUILD SOMETHING<br><span class="text-punch glow-text">EXTRAORDINARY.</span></h2>
