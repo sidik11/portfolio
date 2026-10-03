@@ -2,6 +2,7 @@
    MODERN CYBER PUNCH DESIGN SYSTEM — MD SIDIK PORTFOLIO
    Theme: Stealth Obsidian / Electric Neon Crimson / Glassmorphism
    Ultra Animative: Left/Right/Scale Cinematic Slide Animations + 100% Responsive
+   Live GitHub Repositories Section & Interactive Quick-View Project Modal
    ========================================================================== */
 
 :root {
@@ -487,6 +488,23 @@ body {
   transform: translateY(-3px) scale(1.02);
 }
 
+.p-link-btn {
+  background: transparent;
+  border: none;
+  color: var(--red-punch);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+
+.p-link-btn:hover {
+  color: #fff;
+}
+
 .w-full {
   width: 100%;
 }
@@ -961,7 +979,7 @@ body {
 
 /* ==========================================================================
    STATS STRIP
-   ========================================================================== */
+   ========================================================================= */
 .stats-strip {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -1429,7 +1447,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .project-featured-card {
@@ -1532,6 +1550,7 @@ body {
 
 .proj-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
@@ -1637,6 +1656,9 @@ body {
 .p-footer {
   border-top: 1px solid var(--line);
   padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .p-link {
@@ -1654,6 +1676,136 @@ body {
 
 .p-link:hover {
   color: var(--red-punch);
+}
+
+/* ==========================================================================
+   LIVE GITHUB REPOSITORIES STREAM
+   ========================================================================== */
+.live-repos-section {
+  background: linear-gradient(145deg, #100d16, #09070c);
+  border: 1px solid var(--line-red);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.live-repos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.live-repos-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red-punch);
+  box-shadow: 0 0 10px var(--red-punch);
+  animation: livePulse 2s infinite;
+}
+
+.live-api-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 4px 9px;
+  border-radius: 4px;
+  background: rgba(0, 255, 135, 0.1);
+  border: 1px solid rgba(0, 255, 135, 0.3);
+  color: var(--green-online);
+  letter-spacing: 0.08em;
+}
+
+.live-repos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.live-repo-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+}
+
+.live-repo-item:hover {
+  background: rgba(255, 42, 68, 0.05);
+  border-color: rgba(255, 42, 68, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.repo-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--red-punch);
+  margin-bottom: 10px;
+}
+
+.repo-lang {
+  color: var(--text-dim);
+}
+
+.repo-card-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.repo-card-desc {
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  min-height: 34px;
+}
+
+.repo-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--text-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 8px;
+}
+
+.repo-card-date {
+  color: var(--text-dim);
+}
+
+.live-repo-loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
 }
 
 /* Repo Banner Callout */
@@ -2014,6 +2166,169 @@ body {
 }
 
 /* ==========================================================================
+   INTERACTIVE PROJECT PREVIEW MODAL
+   ========================================================================== */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 3, 6, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  background: linear-gradient(150deg, #17121e, #0c0910);
+  border: 1px solid var(--line-red);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 60px rgba(255, 42, 68, 0.2);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+  overflow: hidden;
+}
+
+.project-modal.active .modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background: var(--red-punch);
+  border-color: var(--red-punch);
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  margin-bottom: 22px;
+}
+
+.modal-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--red-punch);
+  letter-spacing: 0.12em;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.modal-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.modal-body {
+  margin-bottom: 28px;
+}
+
+.modal-section {
+  margin-bottom: 20px;
+}
+
+.modal-sec-title {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--red-punch);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.modal-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-features-list li {
+  font-size: 13px;
+  color: #cfcad2;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.modal-features-list li::before {
+  content: '✓';
+  color: var(--red-punch);
+  font-weight: 700;
+}
+
+.modal-stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.modal-stack-tags span {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: rgba(255, 42, 68, 0.1);
+  border: 1px solid rgba(255, 42, 68, 0.3);
+  color: #ff9da9;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ==========================================================================
    FOOTER
    ========================================================================== */
 .site-footer {
@@ -2107,27 +2422,22 @@ body {
   transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Slide in from Left */
 .reveal-left {
   transform: translateX(-70px);
 }
 
-/* Slide in from Right */
 .reveal-right {
   transform: translateX(70px);
 }
 
-/* Slide in from Bottom/Up */
 .reveal-up {
   transform: translateY(50px);
 }
 
-/* Pop / Scale In */
 .reveal-scale {
   transform: scale(0.92) translateY(25px);
 }
 
-/* When In View */
 .reveal-left.show,
 .reveal-right.show,
 .reveal-up.show,
@@ -2141,7 +2451,7 @@ body {
 }
 
 /* ==========================================================================
-   THOROUGH RESPONSIVE DESIGN (DESKTOP, TABLET, MOBILE)
+   RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1100px) {
   .hero {
@@ -2164,6 +2474,10 @@ body {
 
   .metrics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .live-repos-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .pipeline-container {
@@ -2307,9 +2621,13 @@ body {
     font-size: 34px;
   }
 
-  .bento-card, .project-featured-card, .contact-card-master, .repo-banner {
+  .bento-card, .project-featured-card, .contact-card-master, .repo-banner, .live-repos-section {
     padding: 22px;
     border-radius: 14px;
+  }
+
+  .live-repos-grid {
+    grid-template-columns: 1fr;
   }
 
   .bio-grid {
@@ -2347,6 +2665,14 @@ body {
 
   .cta-box {
     padding: 20px;
+  }
+
+  .modal-dialog {
+    padding: 24px 20px;
+  }
+
+  .modal-title {
+    font-size: 22px;
   }
 
   .site-footer {

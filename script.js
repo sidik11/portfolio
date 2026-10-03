@@ -1,7 +1,11 @@
 // ==========================================================================
 // SCRIPT.JS — INTERACTIVE & ANIMATIVE ENGINE FOR MD SIDIK PORTFOLIO
-// Particle Canvas, Dynamic Typing, 3D Perspective Tilt, Smooth Cursor Physics,
-// Directional Cinematic Slide Observer (Left, Right, Up, Scale)
+// 1. Particle Canvas Physics
+// 2. Dynamic Typing Headline
+// 3. 3D Perspective Card Tilt
+// 4. Directional Cinematic Slide Observer
+// 5. Live GitHub REST API Sync (Live Repos & Counter Auto-Update)
+// 6. Interactive Quick-View Project Modal System
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -151,11 +155,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!isDeleting && charIndex === currentPhrase.length) {
         isDeleting = true;
-        typingSpeed = 1600; // Pause at end
+        typingSpeed = 1600;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        typingSpeed = 400; // Pause before typing next
+        typingSpeed = 400;
       }
 
       setTimeout(typeLoop, typingSpeed);
@@ -163,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     typeLoop();
   }
 
-  // 4. Interactive Cursor Glow & Dot Trail
+  // 4. Interactive Cursor Glow & Dot Trail (Desktop)
   const glow = document.getElementById('cursorGlow');
   const trail = document.getElementById('cursorTrail');
 
@@ -195,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCursor();
   }
 
-  // 5. Directional Cinematic Slide Observer (reveal-left, reveal-right, reveal-up, reveal-scale)
+  // 5. Directional Cinematic Slide Observer
   const revealElements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up, .reveal-scale, .reveal');
   const revealObserver = new IntersectionObserver(
     (entries) => {
@@ -203,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           entry.target.classList.add('show');
 
-          // Trigger Count Up if present inside
+          // Trigger Count Up
           const counters = entry.target.querySelectorAll('.count-up');
           counters.forEach(counter => {
             if (!counter.dataset.animated) {
@@ -314,5 +318,213 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
+  });
+
+  // ==========================================================================
+  // 10. LIVE GITHUB REST API SYNC (Feature 1)
+  // ==========================================================================
+  const liveReposGrid = document.getElementById('liveReposGrid');
+  const apiSyncBadge = document.getElementById('apiSyncBadge');
+  const heroRepoCount = document.getElementById('heroRepoCount');
+  const heroReposMetric = document.getElementById('heroReposMetric');
+  const statRepoVal = document.getElementById('statRepoVal');
+
+  async function fetchLiveGitHubData() {
+    try {
+      // Fetch user profile stats
+      const userRes = await fetch('https://api.github.com/users/sidik11');
+      if (userRes.ok) {
+        const userData = await userRes.json();
+        const reposCount = userData.public_repos || 36;
+        if (heroRepoCount) heroRepoCount.textContent = `${reposCount}+`;
+        if (heroReposMetric) heroReposMetric.textContent = `${reposCount}+`;
+        if (statRepoVal) {
+          statRepoVal.setAttribute('data-target', reposCount);
+          statRepoVal.innerHTML = `${reposCount}<span>+</span>`;
+        }
+      }
+
+      // Fetch latest 4 repositories
+      const reposRes = await fetch('https://api.github.com/users/sidik11/repos?sort=updated&per_page=4');
+      if (reposRes.ok) {
+        const repos = await reposRes.json();
+        if (apiSyncBadge) {
+          apiSyncBadge.textContent = 'CONNECTED • 200 OK';
+          apiSyncBadge.style.color = '#00ff87';
+        }
+
+        if (liveReposGrid && repos.length > 0) {
+          liveReposGrid.innerHTML = '';
+          repos.forEach(repo => {
+            const date = new Date(repo.updated_at).toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric'
+            });
+
+            const card = document.createElement('a');
+            card.href = repo.html_url;
+            card.target = '_blank';
+            card.rel = 'noreferrer';
+            card.className = 'live-repo-item tilt';
+            card.innerHTML = `
+              <div>
+                <div class="repo-card-top">
+                  <span>★ ${repo.stargazers_count}</span>
+                  <span class="repo-lang">${repo.language || 'Code'}</span>
+                </div>
+                <h4 class="repo-card-name">${repo.name}</h4>
+                <p class="repo-card-desc">${repo.description || 'Public GitHub repository exploring modern web architecture and systems.'}</p>
+              </div>
+              <div class="repo-card-foot">
+                <span class="repo-card-date">UPDATED: ${date}</span>
+                <span class="text-punch">VIEW ↗</span>
+              </div>
+            `;
+            liveReposGrid.appendChild(card);
+          });
+        }
+      }
+    } catch (err) {
+      console.warn('GitHub API live sync fallback:', err);
+      if (apiSyncBadge) {
+        apiSyncBadge.textContent = 'CACHED ARCHIVE';
+      }
+    }
+  }
+
+  fetchLiveGitHubData();
+
+  // ==========================================================================
+  // 11. INTERACTIVE PROJECT PREVIEW MODAL (Feature 2)
+  // ==========================================================================
+  const projectDatabase = {
+    exam: {
+      badge: "FLAGSHIP // FULL-STACK ENTERPRISE",
+      title: "Competitive Exam Platform",
+      subtitle: "Full-scale digital assessment system with role-based routing and automated proctoring guards.",
+      features: [
+        "Multi-tier permission management for Administrators, Teachers, and Students.",
+        "Server-synchronized examination clock with zero-latency automated test submission.",
+        "Secure RESTful endpoint verification preventing client-side response tampering.",
+        "Realtime live score calculation and institution report generation."
+      ],
+      stack: ["Node.js", "Express", "Firebase Auth", "Realtime DB", "REST APIs", "Vite"],
+      url: "https://github.com/sidik11/Exam"
+    },
+    gallery: {
+      badge: "FLAGSHIP // CRYPTOGRAPHIC VAULT",
+      title: "Secure Image & Media Vault",
+      subtitle: "Client-side encrypted local media container for confidential file isolation.",
+      features: [
+        "Hardware-backed AES-256 block cipher protecting confidential documents and images.",
+        "Zero-knowledge architecture ensuring files never leave device memory unencrypted.",
+        "Biometric and PIN-guarded protective sandbox container.",
+        "High-performance cached thumbnail generation pipeline."
+      ],
+      stack: ["Android / Java", "AES-256", "Secure Media", "Encrypted Storage", "Android SDK"],
+      url: "https://github.com/sidik11/Gallery"
+    },
+    excel: {
+      badge: "WEB APPLICATION // UTILITY",
+      title: "Excel Catalog & Image Vault",
+      subtitle: "Web project combining spreadsheet search routines and protected image containers.",
+      features: [
+        "Real-time parsing and search indexing of large multi-sheet Excel files.",
+        "Secure image asset association with spreadsheet records.",
+        "Instant filtering and visual slideshow modal workflows.",
+        "Seamless cloud sync via Firebase."
+      ],
+      stack: ["React", "Vite", "Firebase", "SheetJS", "Tailwind CSS"],
+      url: "https://github.com/sidik11/Excel"
+    },
+    innovatex: {
+      badge: "CORPORATE PORTAL // TECH FIRM",
+      title: "MS InnovateX Corporate Platform",
+      subtitle: "Corporate technology platform featuring dynamic sections and student intake workflows.",
+      features: [
+        "Ultra-responsive enterprise layout built with modern CSS custom properties.",
+        "Interactive services carousel and technology capability showcases.",
+        "Structured student internship application and registration workflows.",
+        "High-performance assets optimized for instant sub-second load times."
+      ],
+      stack: ["HTML5", "CSS3", "Modern JavaScript", "UI/UX Architecture"],
+      url: "https://github.com/sidik11/MS_InnovateX"
+    },
+    excel2: {
+      badge: "DATA AUTOMATION // ANALYZER",
+      title: "Excel2 Enterprise Analyzer",
+      subtitle: "High-speed spreadsheet workbook ingestion and visual reporting engine.",
+      features: [
+        "Parses multi-table workbooks directly in-browser with zero upload delay.",
+        "Dynamic formula recalculation and aggregation metrics.",
+        "Visual chart export capabilities for management reporting."
+      ],
+      stack: ["JavaScript", "Data Grid", "Export Utilities", "DOM APIs"],
+      url: "https://github.com/sidik11/Excel2"
+    },
+    lifevision: {
+      badge: "INTERACTIVE APP // SOCIAL",
+      title: "Life-Vision Interactive App",
+      subtitle: "Goal tracking and personal vision portal built with fluid reactive interfaces.",
+      features: [
+        "Interactive goal boards and personal progress visualization.",
+        "Media showcases and motivational card workflows.",
+        "Client-side persistence with real-time UI state transitions."
+      ],
+      stack: ["Web App", "State Flow", "UI Engineering", "Modern CSS"],
+      url: "https://github.com/sidik11/Life-Vision"
+    }
+  };
+
+  const projectModal = document.getElementById('projectModal');
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const modalClose = document.getElementById('modalClose');
+  const modalBadge = document.getElementById('modalBadge');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalSubtitle = document.getElementById('modalSubtitle');
+  const modalFeatures = document.getElementById('modalFeatures');
+  const modalStack = document.getElementById('modalStack');
+  const modalRepoBtn = document.getElementById('modalRepoBtn');
+
+  function openProjectModal(projectId) {
+    const data = projectDatabase[projectId];
+    if (!data || !projectModal) return;
+
+    modalBadge.textContent = data.badge;
+    modalTitle.textContent = data.title;
+    modalSubtitle.textContent = data.subtitle;
+
+    modalFeatures.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+    modalStack.innerHTML = data.stack.map(s => `<span>${s}</span>`).join('');
+    modalRepoBtn.setAttribute('href', data.url);
+
+    projectModal.classList.add('active');
+    projectModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProjectModal() {
+    if (!projectModal) return;
+    projectModal.classList.remove('active');
+    projectModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.open-preview-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pId = btn.getAttribute('data-project-id');
+      if (pId) openProjectModal(pId);
+    });
+  });
+
+  if (modalClose) modalClose.addEventListener('click', closeProjectModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeProjectModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && projectModal && projectModal.classList.contains('active')) {
+      closeProjectModal();
+    }
   });
 });
