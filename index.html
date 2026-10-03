@@ -3,30 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MD SIDIK — Full-Stack Engineer &amp; Software Developer</title>
-  <meta name="description" content="MD Sidik — Full-Stack Engineer & Systems Developer. Building high-performance web applications, resilient backend architectures, and AI-driven products.">
+  <title>MD SIDIK — Full-Stack Web Developer &amp; Systems Engineer</title>
+  <meta name="description" content="MD Sidik — Full-Stack Developer, B.Tech CSE. Building practical web applications, high-performance backends, and AI-enhanced developer tools.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Ambient background canvas & glows -->
+  <!-- Interactive Particle Background Canvas -->
+  <canvas id="cyberCanvas"></canvas>
+  
+  <!-- Subtle screen noise & interactive cursor glow -->
   <div class="noise"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
   <div class="progress" id="progressBar"></div>
 
-  <!-- Ambient light blobs -->
+  <!-- Ambient Glow Orbs -->
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
   <div class="ambient-glow glow-3"></div>
 
-  <!-- Navigation -->
+  <!-- Cyber Grid Lines -->
+  <div class="cyber-scanline"></div>
+
+  <!-- Navigation Bar -->
   <header class="topbar">
     <a class="logo" href="#home">
-      <span class="logo-mark">⚡</span>
+      <span class="logo-spark">⚡</span>
       <span class="logo-text">SIDIK<span class="dot">.</span></span>
-      <span class="logo-badge">ENGINE</span>
+      <span class="logo-badge">DEV_ENGINE</span>
     </a>
 
     <nav class="nav-links">
@@ -34,16 +41,17 @@
       <a href="#about" class="nav-item"><span class="nav-idx">01</span>ABOUT</a>
       <a href="#skills" class="nav-item"><span class="nav-idx">02</span>SKILLS</a>
       <a href="#projects" class="nav-item"><span class="nav-idx">03</span>PROJECTS</a>
-      <a href="#experience" class="nav-item"><span class="nav-idx">04</span>SYSTEMS</a>
-      <a href="#contact" class="nav-item"><span class="nav-idx">05</span>CONNECT</a>
+      <a href="#github-stats" class="nav-item"><span class="nav-idx">04</span>METRICS</a>
+      <a href="#experience" class="nav-item"><span class="nav-idx">05</span>PIPELINE</a>
+      <a href="#contact" class="nav-item"><span class="nav-idx">06</span>CONNECT</a>
     </nav>
 
     <div class="topbar-actions">
-      <a class="btn-live-status" href="https://github.com/sidik11" target="_blank" rel="noreferrer">
+      <a class="btn-live-status pulse-glow" href="https://www.linkedin.com/in/md-sidik-2428a0325" target="_blank" rel="noreferrer">
         <span class="pulse-indicator"></span>
-        <span class="status-txt">AVAILABLE FOR HIRE</span>
+        <span class="status-txt">CONNECT ON LINKEDIN</span>
       </a>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -53,66 +61,81 @@
   <div class="mobile-nav" id="mobileNav">
     <a href="#home" class="mobile-item">00 // HOME</a>
     <a href="#about" class="mobile-item">01 // ABOUT</a>
-    <a href="#skills" class="mobile-item">02 // SKILLS</a>
+    <a href="#skills" class="mobile-item">02 // SKILLS ARSENAL</a>
     <a href="#projects" class="mobile-item">03 // SELECTED WORK</a>
-    <a href="#experience" class="mobile-item">04 // SYSTEMS &amp; WORKFLOW</a>
-    <a href="#contact" class="mobile-item">05 // GET IN TOUCH</a>
+    <a href="#github-stats" class="mobile-item">04 // GITHUB METRICS</a>
+    <a href="#experience" class="mobile-item">05 // SYSTEM PIPELINE</a>
+    <a href="#contact" class="mobile-item">06 // GET IN TOUCH</a>
     <div class="mobile-foot">
-      <a class="btn-primary" href="#contact">START A CONVERSATION ↗</a>
+      <a class="btn-primary w-full" href="https://www.linkedin.com/in/md-sidik-2428a0325" target="_blank" rel="noreferrer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <span>LINKEDIN PROFILE ↗</span>
+      </a>
     </div>
   </div>
 
   <main>
     <!-- HERO SECTION -->
     <section id="home" class="hero">
-      <div class="hero-grid-bg"></div>
-
       <div class="hero-content reveal">
         <div class="hero-tagline">
-          <span class="tag-status"><i class="dot-green"></i> 36+ REPOSITORIES SHIPPING</span>
-          <span class="tag-sep">/</span>
+          <span class="tag-status"><i class="dot-green"></i> 36+ LIVE REPOSITORIES</span>
+          <span class="tag-sep">//</span>
           <span class="tag-loc">ODISHA, INDIA</span>
+          <span class="tag-sep">//</span>
+          <span class="tag-pulse-text">OPEN FOR HIRES</span>
         </div>
 
         <h1 class="hero-title">
-          <span class="title-sub">ENGINEERING THE NEXT</span>
-          <span class="title-main">DIGITAL <span class="text-punch">POWER.</span></span>
+          <span class="title-sub cyber-glitch" data-text="FULL-STACK WEB DEVELOPER">FULL-STACK WEB DEVELOPER</span>
+          <span class="title-main">
+            BUILD. IMPROVE. <br>
+            <span class="text-punch glow-text">SHIP IT.</span>
+          </span>
         </h1>
 
+        <!-- Dynamic Typing Subtitle -->
+        <div class="typing-container">
+          <span class="typing-prompt">&gt;</span>
+          <span class="typing-text" id="typingText"></span>
+          <span class="typing-cursor">_</span>
+        </div>
+
         <div class="hero-metrics-bar">
-          <div class="metric-pill">
+          <div class="metric-pill tilt-sm">
             <span class="metric-num">B.TECH</span>
-            <span class="metric-lbl">CSE SPECIALIST</span>
+            <span class="metric-lbl">CSE GRADUATE</span>
           </div>
-          <div class="metric-pill">
+          <div class="metric-pill tilt-sm">
             <span class="metric-num">36+</span>
-            <span class="metric-lbl">PUBLIC REPOS</span>
+            <span class="metric-lbl">PUBLIC REPOSITORIES</span>
           </div>
-          <div class="metric-pill">
-            <span class="metric-num">FULL-STACK</span>
-            <span class="metric-lbl">END-TO-END</span>
+          <div class="metric-pill tilt-sm">
+            <span class="metric-num">MERN + DB</span>
+            <span class="metric-lbl">END-TO-END STACK</span>
           </div>
-          <div class="metric-pill">
-            <span class="metric-num">AI &amp; APIS</span>
-            <span class="metric-lbl">EXPLORATION</span>
+          <div class="metric-pill tilt-sm">
+            <span class="metric-num">AI TOOLS</span>
+            <span class="metric-lbl">PRACTICAL INTEGRATION</span>
           </div>
         </div>
 
         <p class="hero-lead">
-          I'm <strong>MD Sidik</strong> — a passionate software engineer crafting high-impact full-stack web applications, robust backends, and responsive micro-architectures that translate raw vision into production code.
+          I'm <strong>MD Sidik</strong> — a software engineer who turns complex concepts into responsive web interfaces and secure backend architectures. I prioritize practical products and shipping software over endless tutorials.
         </p>
 
         <div class="hero-actions">
-          <a class="btn-primary magnetic" href="#projects">
+          <a class="btn-primary magnetic-btn" href="#projects">
             <span>EXPLORE WORK</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </a>
-          <a class="btn-secondary magnetic" href="https://github.com/sidik11" target="_blank" rel="noreferrer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>GITHUB PROFILE</span>
+          <a class="btn-linkedin magnetic-btn" href="https://www.linkedin.com/in/md-sidik-2428a0325" target="_blank" rel="noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <span>LINKEDIN</span>
           </a>
-          <a class="btn-tertiary" href="https://sidik11.github.io/resume/" target="_blank" rel="noreferrer">
-            <span>LIVE RESUME ↗</span>
+          <a class="btn-secondary magnetic-btn" href="https://github.com/sidik11" target="_blank" rel="noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GITHUB (36+)</span>
           </a>
         </div>
       </div>
@@ -120,39 +143,50 @@
       <div class="hero-visual reveal delay">
         <div class="hud-orbit orbit-large"></div>
         <div class="hud-orbit orbit-medium"></div>
+        <div class="hud-orbit orbit-small"></div>
 
-        <div class="cyber-portrait-card tilt" data-tilt-strength="15">
+        <!-- 3D Interactive Cyber Portrait Card -->
+        <div class="cyber-portrait-card tilt" id="heroCard">
+          <div class="card-shimmer"></div>
           <div class="portrait-header">
-            <span class="hud-tag"><i class="hud-dot"></i> LIVE SPEC // 01</span>
-            <span class="hud-mono">ID: SIDIK-11</span>
+            <span class="hud-tag"><i class="hud-dot"></i> SPEC_01 // ACTIVE</span>
+            <span class="hud-mono">ID: SIDIK11</span>
           </div>
 
           <div class="avatar-frame">
             <img src="https://avatars.githubusercontent.com/u/149406522?v=4" alt="MD Sidik - Full Stack Developer" class="portrait-img">
             <div class="avatar-scanline"></div>
+            <div class="cyber-target"></div>
             <div class="avatar-badge">FULL-STACK READY</div>
           </div>
 
           <div class="portrait-meta">
             <div class="meta-row">
               <span class="lbl">FOCUS</span>
-              <span class="val">Next.js • Node • Express • APIs</span>
+              <span class="val">React • Node • Express • APIs</span>
             </div>
             <div class="meta-row">
-              <span class="lbl">DB &amp; CLOUD</span>
+              <span class="lbl">DB &amp; REALTIME</span>
               <span class="val">MySQL • Firebase • Cloud Deploy</span>
+            </div>
+            <div class="meta-row">
+              <span class="lbl">PHILOSOPHY</span>
+              <span class="val text-punch">Build → Test → Ship</span>
             </div>
           </div>
 
           <div class="cyber-corner tr"></div>
           <div class="cyber-corner bl"></div>
+          <div class="cyber-corner tl"></div>
+          <div class="cyber-corner br"></div>
         </div>
 
-        <div class="floating-tech-card">
+        <!-- Floating Interactive Badge -->
+        <div class="floating-tech-card floating-anim">
           <div class="tech-icon-circle">⚡</div>
           <div class="tech-icon-info">
-            <span class="tech-title">CORE PHILOSOPHY</span>
-            <span class="tech-desc">Code → Build → Test → Ship</span>
+            <span class="tech-title">CODE CADENCE</span>
+            <span class="tech-desc">Real Projects &gt; Demos</span>
           </div>
         </div>
       </div>
@@ -166,24 +200,24 @@
     <!-- STATS STRIP -->
     <section class="stats-strip">
       <div class="strip-container">
-        <div class="stat-item">
-          <div class="stat-val">36<span>+</span></div>
-          <div class="stat-label">PROJECTS ON GITHUB</div>
+        <div class="stat-item reveal">
+          <div class="stat-val count-up" data-target="36">0<span>+</span></div>
+          <div class="stat-label">PUBLIC REPOSITORIES</div>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
+        <div class="stat-item reveal delay">
           <div class="stat-val">B.TECH<span> CSE</span></div>
-          <div class="stat-label">ENGINEERING BACKGROUND</div>
+          <div class="stat-label">COMPUTER SCIENCE ENG.</div>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-val">100<span>%</span></div>
-          <div class="stat-label">COMMITMENT TO QUALITY</div>
+        <div class="stat-item reveal delay">
+          <div class="stat-val count-up" data-target="100">0<span>%</span></div>
+          <div class="stat-label">SHIPPED CODE QUALITY</div>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-val">24<span>/7</span></div>
-          <div class="stat-label">ACTIVE PROBLEM SOLVER</div>
+        <div class="stat-item reveal delay">
+          <div class="stat-val text-punch">FULL<span>-STACK</span></div>
+          <div class="stat-label">END-TO-END CAPABILITY</div>
         </div>
       </div>
     </section>
@@ -192,23 +226,23 @@
     <section id="about" class="page-section">
       <div class="section-header reveal">
         <div class="section-kicker"><span class="kicker-num">01</span> ARCHITECTURE &amp; ORIGIN</div>
-        <h2 class="section-title">ENGINEERING WITH<br><span class="text-punch">PURPOSE &amp; VELOCITY.</span></h2>
+        <h2 class="section-title">CODE → BUILD → TEST →<br><span class="text-punch glow-text">IMPROVE → REPEAT.</span></h2>
       </div>
 
       <div class="about-layout">
         <article class="card bento-card about-bio tilt reveal">
-          <div class="card-pill">ENGINEER BIO</div>
-          <h3 class="card-heading">Turning complex concepts into responsive digital experiences.</h3>
+          <div class="card-pill">ENGINEER DOSSIER</div>
+          <h3 class="card-heading">Practical software engineered for actual users.</h3>
           <p class="card-text">
-            I am <strong>MD Sidik</strong>, an engineer with a strong Computer Science and Engineering foundation based in Odisha, India. My passion is crafting end-to-end web applications where clean UI meets high-throughput server architecture.
+            I am <strong>MD Sidik</strong>, a Computer Science &amp; Engineering developer based in Odisha, India. My core philosophy is centered on building practical web systems that solve tangible problems — not disposable tutorial clones.
           </p>
           <p class="card-text">
-            I believe real growth happens by putting code into the hands of users. Every project in my catalog represents a focused challenge: securing private databases, optimizing real-time events, building enterprise landing engines, or deploying multi-tier applications.
+            With 36+ projects shipped across GitHub, I work comfortably across the entire technology vertical: designing clean and reactive UI interfaces in React, architecting RESTful services in Node.js and Express, normalizing relational SQL databases, and setting up automated cloud deployment pipelines.
           </p>
 
           <div class="bio-grid">
             <div class="bio-spec">
-              <span class="spec-label">EDUCATION</span>
+              <span class="spec-label">DEGREE</span>
               <span class="spec-value">B.Tech Computer Science</span>
             </div>
             <div class="bio-spec">
@@ -216,67 +250,67 @@
               <span class="spec-value">Full-Stack Web &amp; API Systems</span>
             </div>
             <div class="bio-spec">
-              <span class="spec-label">ACTIVE EXPLORATION</span>
-              <span class="spec-value">AI Integrations &amp; Realtime Tools</span>
+              <span class="spec-label">PASSION &amp; AI</span>
+              <span class="spec-value">AI-Driven Dev &amp; Modern Tools</span>
             </div>
             <div class="bio-spec">
-              <span class="spec-label">DEPLOYMENT TARGETS</span>
+              <span class="spec-label">DEPLOYMENT RUNTIME</span>
               <span class="spec-value">Vercel, Render, Netlify, Cloud</span>
             </div>
           </div>
         </article>
 
         <article class="card bento-card about-capabilities tilt reveal delay">
-          <div class="card-pill">EXECUTION PILLARS</div>
+          <div class="card-pill">WHAT I BUILD</div>
           <div class="capability-list">
             <div class="cap-item">
               <div class="cap-idx">01</div>
               <div class="cap-info">
-                <h4>FULL-STACK ARCHITECTURE</h4>
+                <h4>FULL-STACK APPLICATIONS</h4>
                 <p>Complete lifecycle from schema modeling and relational data to RESTful APIs and fluid reactive user interfaces.</p>
               </div>
             </div>
             <div class="cap-item">
               <div class="cap-idx">02</div>
               <div class="cap-info">
-                <h4>DATA SECURITY &amp; ENCRYPTION</h4>
-                <p>Protected media stores, token authentication workflows, AES-encrypted vault mechanisms, and robust role-based access.</p>
+                <h4>PRACTICAL TOOLS &amp; VAULTS</h4>
+                <p>Utilities and systems built to solve specific challenges: cryptographic vaults, Excel parsers, and test engines.</p>
               </div>
             </div>
             <div class="cap-item">
               <div class="cap-idx">03</div>
               <div class="cap-info">
-                <h4>PRACTICAL UTILITIES &amp; APPS</h4>
-                <p>Fast-loading spreadsheets, interactive portals, catalog engines, and productivity tools built for real users.</p>
+                <h4>AI-ENHANCED PROJECTS</h4>
+                <p>Exploring useful AI integrations, intelligent workflows, and modern developer automation tools.</p>
               </div>
             </div>
             <div class="cap-item">
               <div class="cap-idx">04</div>
               <div class="cap-info">
-                <h4>RAPID CI/CD &amp; DEPLOYMENT</h4>
-                <p>Automated build processes, version control discipline, API mocking with Postman, and streamlined production pipelines.</p>
+                <h4>DEPLOYMENT &amp; INFRASTRUCTURE</h4>
+                <p>Working with hosting, APIs, cloud databases, environment variables, caching, and production configuration.</p>
               </div>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Live Terminal Widget -->
+      <!-- Live Interactive Terminal -->
       <div class="terminal-card tilt reveal">
         <div class="terminal-bar">
           <div class="terminal-dots">
             <span></span><span></span><span></span>
           </div>
-          <div class="terminal-title">sidik@dev-engine: ~ /profile-summary</div>
-          <div class="terminal-mode">bash</div>
+          <div class="terminal-title">sidik@dev-engine: ~/profile-spec</div>
+          <div class="terminal-mode">bash • interactive</div>
         </div>
-        <div class="terminal-body">
-          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">sidik --status</span></div>
-          <div class="t-line t-out"><span class="t-accent">READY:</span> Accepting new development opportunities, contract builds, and engineering teams.</div>
-          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">cat core-philosophy.txt</span></div>
-          <div class="t-line t-out">"Simplicity in implementation, resilience in architecture, and sheer momentum in shipping."</div>
-          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">git log -1 --format="%h - %s (%ar)"</span></div>
-          <div class="t-line t-out"><span class="t-muted">8a2c1f9 - Upgrade design system &amp; performance pipeline (Just now)</span></div>
+        <div class="terminal-body" id="terminalBody">
+          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">curl -s https://api.github.com/users/sidik11 | jq '{login, public_repos, bio}'</span></div>
+          <div class="t-line t-out"><span class="t-accent">{ "login": "sidik11", "public_repos": 36, "focus": "Full-Stack Web Dev" }</span></div>
+          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">cat profile-creed.txt</span></div>
+          <div class="t-line t-out">"Build something useful. Then make it better. Code → Build → Test → Improve → Repeat."</div>
+          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">sidik --query-availability</span></div>
+          <div class="t-line t-out"><span class="t-green">STATUS: READY FOR INTERNSHIPS, FULL-STACK ROLES &amp; FREELANCE BUILDS</span></div>
           <div class="t-line"><span class="t-prompt">$</span> <span class="t-cursor">█</span></div>
         </div>
       </div>
@@ -286,88 +320,96 @@
     <section id="skills" class="page-section">
       <div class="section-header reveal">
         <div class="section-kicker"><span class="kicker-num">02</span> TECH STACK &amp; ARSENAL</div>
-        <h2 class="section-title">THE PRODUCTION<br><span class="text-punch">TOOLKIT.</span></h2>
+        <h2 class="section-title">THE PRODUCTION<br><span class="text-punch glow-text">TOOLKIT.</span></h2>
       </div>
 
-      <div class="skills-filter-tags">
+      <!-- Filter Controls -->
+      <div class="skills-filter-tags reveal">
         <button class="filter-btn active" data-filter="all">ALL TECHNOLOGIES</button>
         <button class="filter-btn" data-filter="frontend">FRONTEND &amp; UI</button>
         <button class="filter-btn" data-filter="backend">BACKEND &amp; APIS</button>
         <button class="filter-btn" data-filter="data">DATABASE &amp; CLOUD</button>
-        <button class="filter-btn" data-filter="workflow">DEV WORKFLOW</button>
+        <button class="filter-btn" data-filter="workflow">DEV &amp; DEPLOYMENT</button>
       </div>
 
+      <!-- Interactive Skills Deck -->
       <div class="skills-deck">
-        <div class="skill-card tilt" data-category="frontend">
+        <div class="skill-card tilt reveal" data-category="frontend">
+          <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-01</span>
             <span class="skill-badge">FRONTEND</span>
           </div>
           <div class="skill-icon-wrap">⚛️</div>
-          <h3>React &amp; Modern UI</h3>
-          <p>Component hierarchies, hooks, state machines, and high-performance rendering.</p>
+          <h3>React &amp; Vite</h3>
+          <p>Component-driven web applications, fast SPA rendering, modern hooks, and state management.</p>
           <div class="skill-meter"><div class="meter-fill" style="--val: 92%"></div></div>
-          <div class="skill-tags"><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>DOM API</span></div>
+          <div class="skill-tags"><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>HTML5 / CSS3</span></div>
         </div>
 
-        <div class="skill-card tilt" data-category="frontend">
+        <div class="skill-card tilt reveal delay" data-category="frontend">
+          <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-02</span>
-            <span class="skill-badge">CORE WEB</span>
+            <span class="skill-badge">JAVASCRIPT CORE</span>
           </div>
-          <div class="skill-icon-wrap">🌐</div>
-          <h3>HTML5 / CSS3 / ESNext</h3>
-          <p>Semantic markup, CSS custom properties, grid layouts, animations, and async JavaScript.</p>
-          <div class="skill-meter"><div class="meter-fill" style="--val: 96%"></div></div>
-          <div class="skill-tags"><span>Modern JS</span><span>Flex/Grid</span><span>Web APIs</span><span>Responsive</span></div>
+          <div class="skill-icon-wrap">⚡</div>
+          <h3>JavaScript (ESNext)</h3>
+          <p>Asynchronous patterns, DOM mechanics, fetch API, promises, and dynamic responsive interactions.</p>
+          <div class="skill-meter"><div class="meter-fill" style="--val: 95%"></div></div>
+          <div class="skill-tags"><span>ES6+</span><span>Async/Await</span><span>DOM API</span><span>Modern Web</span></div>
         </div>
 
-        <div class="skill-card tilt" data-category="backend">
+        <div class="skill-card tilt reveal delay" data-category="backend">
+          <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-03</span>
             <span class="skill-badge">BACKEND</span>
           </div>
           <div class="skill-icon-wrap">🟢</div>
           <h3>Node.js &amp; Express</h3>
-          <p>Scalable server architectures, RESTful routing, middleware pipelines, and JWT security.</p>
+          <p>RESTful APIs, routing architecture, middleware chains, token authentication, and server controllers.</p>
           <div class="skill-meter"><div class="meter-fill" style="--val: 88%"></div></div>
-          <div class="skill-tags"><span>Express</span><span>REST APIs</span><span>Auth</span><span>Microservices</span></div>
+          <div class="skill-tags"><span>Node.js</span><span>Express</span><span>REST APIs</span><span>Auth</span></div>
         </div>
 
-        <div class="skill-card tilt" data-category="data">
+        <div class="skill-card tilt reveal" data-category="data">
+          <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-04</span>
-            <span class="skill-badge">DATA</span>
+            <span class="skill-badge">RELATIONAL DATA</span>
           </div>
           <div class="skill-icon-wrap">🗄️</div>
-          <h3>MySQL &amp; Relational</h3>
-          <p>Schema normalization, structured queries, indexes, transaction integrity, and CRUD systems.</p>
+          <h3>MySQL &amp; Databases</h3>
+          <p>Relational table design, normalized schemas, CRUD query operations, foreign keys, and indexes.</p>
           <div class="skill-meter"><div class="meter-fill" style="--val: 86%"></div></div>
-          <div class="skill-tags"><span>SQL</span><span>Relational DB</span><span>Joins</span><span>Query Tuning</span></div>
+          <div class="skill-tags"><span>MySQL</span><span>Relational DB</span><span>SQL Queries</span><span>Schema Design</span></div>
         </div>
 
-        <div class="skill-card tilt" data-category="data">
+        <div class="skill-card tilt reveal delay" data-category="data">
+          <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-05</span>
             <span class="skill-badge">CLOUD &amp; REALTIME</span>
           </div>
           <div class="skill-icon-wrap">🔥</div>
-          <h3>Firebase &amp; Realtime</h3>
-          <p>NoSQL cloud storage, Firestore collections, real-time listeners, and serverless authentication.</p>
-          <div class="skill-meter"><div class="meter-fill" style="--val: 89%"></div></div>
-          <div class="skill-tags"><span>Firestore</span><span>Auth</span><span>Cloud Storage</span><span>Realtime DB</span></div>
+          <h3>Firebase Ecosystem</h3>
+          <p>Realtime Database, Firestore collections, Firebase Auth, cloud media storage, and security rules.</p>
+          <div class="skill-meter"><div class="meter-fill" style="--val: 90%"></div></div>
+          <div class="skill-tags"><span>Realtime DB</span><span>Firestore</span><span>Firebase Auth</span><span>Cloud Storage</span></div>
         </div>
 
-        <div class="skill-card tilt" data-category="workflow">
+        <div class="skill-card tilt reveal delay" data-category="workflow">
+          <div class="skill-glow"></div>
           <div class="skill-top">
             <span class="skill-code">SK-06</span>
-            <span class="skill-badge">DEVOPS &amp; TOOLING</span>
+            <span class="skill-badge">DEPLOYMENT &amp; TOOLS</span>
           </div>
           <div class="skill-icon-wrap">🚀</div>
-          <h3>Git, GitHub &amp; CI/CD</h3>
-          <p>Version control best practices, branch isolation, merge workflows, Vercel &amp; Render pipelines.</p>
+          <h3>Git, GitHub &amp; Hosting</h3>
+          <p>Git branching workflows, Postman API verification, and CI/CD hosting via Netlify, Vercel, and Render.</p>
           <div class="skill-meter"><div class="meter-fill" style="--val: 94%"></div></div>
-          <div class="skill-tags"><span>Git CLI</span><span>GitHub</span><span>Postman</span><span>Vercel / Render</span></div>
+          <div class="skill-tags"><span>Git / GitHub</span><span>Postman</span><span>Vercel</span><span>Render</span><span>Netlify</span></div>
         </div>
       </div>
     </section>
@@ -377,32 +419,33 @@
       <div class="section-header reveal">
         <div class="section-kicker"><span class="kicker-num">03</span> SHOWCASE REPOSITORY ARCHIVE</div>
         <div class="title-with-cta">
-          <h2 class="section-title">SIGNATURE<br><span class="text-punch">PROJECTS.</span></h2>
+          <h2 class="section-title">FEATURED<br><span class="text-punch glow-text">APPLICATIONS.</span></h2>
           <a href="https://github.com/sidik11?tab=repositories" target="_blank" rel="noreferrer" class="btn-secondary">
-            <span>ALL 36+ REPOSITORIES</span>
+            <span>VIEW ALL 36+ REPOSITORIES</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </a>
         </div>
       </div>
 
       <div class="showcase-grid">
-        <!-- FEATURED 1 -->
+        <!-- FLAGSHIP 1 -->
         <article class="project-featured-card tilt reveal">
+          <div class="card-shimmer"></div>
           <div class="proj-badge-top">
-            <span class="proj-counter">FLAGSHIP 01</span>
-            <span class="proj-tag">FULL-STACK ENTERPRISE</span>
+            <span class="proj-counter">FLAGSHIP // 01</span>
+            <span class="proj-tag">FULL-STACK PLATFORM</span>
           </div>
 
           <div class="proj-body">
             <h3 class="proj-title">Competitive Exam Platform</h3>
             <p class="proj-desc">
-              An enterprise-grade, multi-role online examination ecosystem engineered for students, educators, and institutions. Features secure test authoring, automated grading routines, real-time timer synchronization, and robust reporting dashboards.
+              A comprehensive examination portal designed for students, teachers, institutions, and administrative workflows. Engineered with automated timers, instant scoring, and secure question delivery.
             </p>
 
             <div class="proj-highlights">
-              <div class="highlight-item">✓ Multi-tier role permissions (Admin / Teacher / Student)</div>
-              <div class="highlight-item">✓ Realtime test state tracking &amp; automated submission</div>
-              <div class="highlight-item">✓ Secure backend API validation prevents cheating</div>
+              <div class="highlight-item"><span class="h-dot"></span> Student, Teacher &amp; Admin permission tiers</div>
+              <div class="highlight-item"><span class="h-dot"></span> Realtime timer synchronization &amp; auto-submit routines</div>
+              <div class="highlight-item"><span class="h-dot"></span> Backend API security and anti-tamper answer validation</div>
             </div>
 
             <div class="proj-stack">
@@ -410,8 +453,8 @@
             </div>
 
             <div class="proj-links">
-              <a href="https://github.com/sidik11/Exam" target="_blank" rel="noreferrer" class="btn-primary">
-                <span>VIEW SOURCE CODE</span>
+              <a href="https://github.com/sidik11/Exam" target="_blank" rel="noreferrer" class="btn-primary magnetic-btn">
+                <span>VIEW REPOSITORY ↗</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
               </a>
             </div>
@@ -420,38 +463,39 @@
           <div class="proj-decor">
             <div class="decor-glow"></div>
             <div class="decor-hud">
-              <span class="hud-status">REPO // ACTIVE</span>
-              <span class="hud-code">STABLE v2.4</span>
+              <span class="hud-status">STATUS // VERIFIED</span>
+              <span class="hud-code">STABLE BUILD</span>
             </div>
           </div>
         </article>
 
-        <!-- FEATURED 2 -->
+        <!-- FLAGSHIP 2 -->
         <article class="project-featured-card tilt reveal delay">
+          <div class="card-shimmer"></div>
           <div class="proj-badge-top">
-            <span class="proj-counter">FLAGSHIP 02</span>
-            <span class="proj-tag">SECURITY &amp; VAULT</span>
+            <span class="proj-counter">FLAGSHIP // 02</span>
+            <span class="proj-tag">CRYPTOGRAPHIC VAULT</span>
           </div>
 
           <div class="proj-body">
             <h3 class="proj-title">Secure Image &amp; Media Vault</h3>
             <p class="proj-desc">
-              A privacy-centric secure multimedia container tailored for encrypted asset management. Combines client-side AES cryptographic routines with protected local storage, ensuring confidential documents and photos stay strictly authorized.
+              Privacy-centric media gallery built for protected asset storage. Employs client-side encryption algorithms and isolated file containers to ensure photos and confidential items stay strictly confidential.
             </p>
 
             <div class="proj-highlights">
-              <div class="highlight-item">✓ Client-side cryptography ensures zero-knowledge storage</div>
-              <div class="highlight-item">✓ Protected viewing mode with biometric/passcode trigger</div>
-              <div class="highlight-item">✓ High-speed cached thumbnail generation and playback</div>
+              <div class="highlight-item"><span class="h-dot"></span> AES encryption layer protecting local media files</div>
+              <div class="highlight-item"><span class="h-dot"></span> Protected viewing mode with biometric/passcode gate</div>
+              <div class="highlight-item"><span class="h-dot"></span> Zero-knowledge local file isolation architecture</div>
             </div>
 
             <div class="proj-stack">
-              <span>Android / Java</span><span>AES-256</span><span>Secure Media</span><span>Encrypted Storage</span>
+              <span>Android / Java</span><span>AES-256</span><span>Secure Media</span><span>Local Storage</span>
             </div>
 
             <div class="proj-links">
-              <a href="https://github.com/sidik11/Gallery" target="_blank" rel="noreferrer" class="btn-primary">
-                <span>VIEW SOURCE CODE</span>
+              <a href="https://github.com/sidik11/Gallery" target="_blank" rel="noreferrer" class="btn-primary magnetic-btn">
+                <span>VIEW REPOSITORY ↗</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
               </a>
             </div>
@@ -460,87 +504,122 @@
           <div class="proj-decor">
             <div class="decor-glow"></div>
             <div class="decor-hud">
-              <span class="hud-status">PRIVACY // SHIELD</span>
-              <span class="hud-code">SECURE KEY</span>
+              <span class="hud-status">SHIELD // ENCRYPTED</span>
+              <span class="hud-code">AES-256</span>
             </div>
           </div>
         </article>
 
-        <!-- GRID SECONDARY PROJECTS -->
+        <!-- SECONDARY PROJECTS GRID -->
         <article class="project-card tilt reveal">
           <div class="p-card-top">
             <span class="p-num">03</span>
-            <span class="p-type">WEB APPLICATION</span>
+            <span class="p-type">WEB UTILITY</span>
           </div>
-          <h4>Excel Catalog &amp; Cloud Vault</h4>
-          <p>Interactive web application combining real-time spreadsheet parsing, fast catalog filtering, and protected cloud assets.</p>
+          <h4>Excel Catalog &amp; Image Vault</h4>
+          <p>Web application combining Excel spreadsheet search routines, structured records, and protected image containers.</p>
           <div class="p-tags"><span>React</span><span>Vite</span><span>Firebase</span><span>SheetJS</span></div>
           <div class="p-footer">
-            <a href="https://github.com/sidik11/Excel" target="_blank" rel="noreferrer" class="p-link">EXPLORE REPO ↗</a>
+            <a href="https://github.com/sidik11/Excel" target="_blank" rel="noreferrer" class="p-link">EXPLORE GITHUB ↗</a>
           </div>
         </article>
 
         <article class="project-card tilt reveal">
           <div class="p-card-top">
             <span class="p-num">04</span>
-            <span class="p-type">CORPORATE TECH</span>
+            <span class="p-type">TECH PORTAL</span>
           </div>
-          <h4>MS InnovateX Corporate Portal</h4>
-          <p>Modern tech firm portal with dynamic service showcases, internship intake workflows, and responsive interactive elements.</p>
-          <div class="p-tags"><span>HTML5</span><span>CSS3</span><span>Modern JS</span><span>UI Design</span></div>
+          <h4>MS InnovateX Corporate Platform</h4>
+          <p>Corporate technology platform showcasing company services, interactive modern sections, and student internship intake.</p>
+          <div class="p-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>UI/UX</span></div>
           <div class="p-footer">
-            <a href="https://github.com/sidik11/MS_InnovateX" target="_blank" rel="noreferrer" class="p-link">EXPLORE REPO ↗</a>
+            <a href="https://github.com/sidik11/MS_InnovateX" target="_blank" rel="noreferrer" class="p-link">EXPLORE GITHUB ↗</a>
           </div>
         </article>
 
         <article class="project-card tilt reveal">
           <div class="p-card-top">
             <span class="p-num">05</span>
-            <span class="p-type">DATA AUTOMATION</span>
+            <span class="p-type">DATA ENGINE</span>
           </div>
           <h4>Excel2 Enterprise Analyzer</h4>
-          <p>Enhanced data crunching tool designed to ingest multi-table workbooks and generate actionable visual reports.</p>
-          <div class="p-tags"><span>JavaScript</span><span>Data Tables</span><span>Export Engines</span></div>
+          <p>Second-generation data crunching tool designed to ingest complex multi-table sheets and export visual summaries.</p>
+          <div class="p-tags"><span>JavaScript</span><span>Data Grid</span><span>Export Utility</span></div>
           <div class="p-footer">
-            <a href="https://github.com/sidik11/Excel2" target="_blank" rel="noreferrer" class="p-link">EXPLORE REPO ↗</a>
+            <a href="https://github.com/sidik11/Excel2" target="_blank" rel="noreferrer" class="p-link">EXPLORE GITHUB ↗</a>
           </div>
         </article>
 
         <article class="project-card tilt reveal">
           <div class="p-card-top">
             <span class="p-num">06</span>
-            <span class="p-type">SOCIAL &amp; MEDIA</span>
+            <span class="p-type">INTERACTIVE APP</span>
           </div>
           <h4>Life-Vision Interactive App</h4>
-          <p>Community and personal growth web tool exploring interactive goal tracking, media showcases, and fluid UX.</p>
+          <p>Personal vision and goal-tracking web platform with custom card workflows, media previews, and responsive layouts.</p>
           <div class="p-tags"><span>Web App</span><span>State Flow</span><span>UI Engineering</span></div>
           <div class="p-footer">
-            <a href="https://github.com/sidik11/Life-Vision" target="_blank" rel="noreferrer" class="p-link">EXPLORE REPO ↗</a>
+            <a href="https://github.com/sidik11/Life-Vision" target="_blank" rel="noreferrer" class="p-link">EXPLORE GITHUB ↗</a>
           </div>
         </article>
       </div>
 
-      <!-- GITHUB DIRECTORY CALLOUT -->
+      <!-- REPO ARCHIVE BANNER -->
       <div class="repo-banner tilt reveal">
         <div class="banner-left">
-          <span class="banner-tag">ACTIVE REPOSITORY ARCHIVE</span>
-          <h3>Looking for backend APIs, microservices, or university projects?</h3>
-          <p>I maintain over 36 repositories covering full-stack apps, backends, utility scripts, and experiments.</p>
+          <span class="banner-tag">ACTIVE CODE REPOSITORY</span>
+          <h3>Looking for backend APIs, microservices, or full-stack builds?</h3>
+          <p>I actively push updates and maintain 36+ projects across frontend, backend, and utility engineering.</p>
         </div>
         <div class="banner-right">
-          <a class="btn-primary" href="https://github.com/sidik11?tab=repositories" target="_blank" rel="noreferrer">
-            <span>EXPLORE GITHUB REPOSITORIES</span>
+          <a class="btn-primary magnetic-btn" href="https://github.com/sidik11?tab=repositories" target="_blank" rel="noreferrer">
+            <span>EXPLORE ALL 36+ REPOSITORIES</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE / METHODOLOGY -->
+    <!-- LIVE GITHUB METRICS SECTION -->
+    <section id="github-stats" class="page-section">
+      <div class="section-header reveal">
+        <div class="section-kicker"><span class="kicker-num">04</span> OPEN SOURCE METRICS</div>
+        <h2 class="section-title">VERIFIED GITHUB<br><span class="text-punch glow-text">ACTIVITY.</span></h2>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-visual-card tilt reveal">
+          <div class="metric-card-header">
+            <span>GITHUB STATS OVERVIEW</span>
+            <span class="live-dot">LIVE</span>
+          </div>
+          <div class="metric-img-wrap">
+            <img src="https://github-readme-stats.vercel.app/api?username=sidik11&show_icons=true&theme=transparent&hide_border=true&title_color=ff2a44&icon_color=ff2a44&text_color=9e97a3" alt="Sidik GitHub Stats" loading="lazy">
+          </div>
+        </div>
+
+        <div class="metric-visual-card tilt reveal delay">
+          <div class="metric-card-header">
+            <span>TOP CODE LANGUAGES</span>
+            <span class="live-dot">LIVE</span>
+          </div>
+          <div class="metric-img-wrap">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sidik11&layout=compact&theme=transparent&hide_border=true&title_color=ff2a44&text_color=9e97a3" alt="Sidik Top Languages" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- GitHub Streak Banner -->
+      <div class="streak-banner tilt reveal">
+        <img src="https://github-readme-streak-stats.herokuapp.com/?user=sidik11&theme=transparent&hide_border=true&stroke=ff2a44&ring=ff2a44&fire=ff2a44&currStreakLabel=ff2a44" alt="Sidik GitHub Streak" loading="lazy" class="streak-img">
+      </div>
+    </section>
+
+    <!-- PIPELINE / METHODOLOGY -->
     <section id="experience" class="page-section">
       <div class="section-header reveal">
-        <div class="section-kicker"><span class="kicker-num">04</span> SYSTEM METHODOLOGY</div>
-        <h2 class="section-title">HOW I BUILD<br><span class="text-punch">&amp; DELIVER.</span></h2>
+        <div class="section-kicker"><span class="kicker-num">05</span> SYSTEM PIPELINE</div>
+        <h2 class="section-title">HOW I BUILD<br><span class="text-punch glow-text">&amp; DELIVER.</span></h2>
       </div>
 
       <div class="pipeline-container">
@@ -549,8 +628,8 @@
           <div class="step-card tilt">
             <span class="step-icon">📐</span>
             <h3>Architect &amp; Model</h3>
-            <p>Every project begins with concrete architectural planning: data schemas, security perimeters, route boundaries, and interface ergonomics.</p>
-            <div class="step-foot"><span>PRD &amp; SCHEMA</span><span>MODULAR DESIGN</span></div>
+            <p>Define relational schemas, data normalization, auth rules, route contracts, and interface ergonomic wireframes.</p>
+            <div class="step-foot"><span>SCHEMA &amp; API</span><span>PRD PLANNING</span></div>
           </div>
         </div>
 
@@ -559,7 +638,7 @@
           <div class="step-card tilt">
             <span class="step-icon">⚡</span>
             <h3>Code with Velocity</h3>
-            <p>Writing clean, maintainable, and strongly decoupled code. From reusable frontend component trees to RESTful controller endpoints.</p>
+            <p>Writing clean, maintainable, modular JavaScript/React interfaces paired with decoupled Express controller endpoints.</p>
             <div class="step-foot"><span>CLEAN PATTERNS</span><span>HIGH SPEED</span></div>
           </div>
         </div>
@@ -568,9 +647,9 @@
           <div class="step-badge">STAGE 03</div>
           <div class="step-card tilt">
             <span class="step-icon">🛡️</span>
-            <h3>Test &amp; Harden</h3>
-            <p>Validating API payloads with Postman, eliminating memory leaks, tightening CORS and auth guards, and verifying cross-browser performance.</p>
-            <div class="step-foot"><span>SECURITY FIRST</span><span>0-COMPROMISE</span></div>
+            <h3>Harden &amp; Secure</h3>
+            <p>Verifying API schemas with Postman, eliminating memory leaks, establishing strict CORS policies, and testing security barriers.</p>
+            <div class="step-foot"><span>SECURITY FIRST</span><span>ZERO COMPROMISE</span></div>
           </div>
         </div>
 
@@ -578,15 +657,15 @@
           <div class="step-badge">STAGE 04</div>
           <div class="step-card tilt">
             <span class="step-icon">🚀</span>
-            <h3>Deploy &amp; Iterate</h3>
-            <p>Automating deployment via modern hosts (Vercel, Render, Netlify), verifying SSL and DNS routing, monitoring feedback, and continuous shipping.</p>
+            <h3>Deploy &amp; Monitor</h3>
+            <p>Automated deployment via Netlify, Vercel, and Render, configuring custom domains, SSL certificates, and performance auditing.</p>
             <div class="step-foot"><span>PRODUCTION READY</span><span>LIVE METRICS</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- LIVE MARQUEE STRIP -->
+    <!-- MARQUEE TICKER -->
     <section class="marquee-section">
       <div class="marquee-track">
         <div class="marquee-content">
@@ -616,36 +695,36 @@
       </div>
     </section>
 
-    <!-- CONTACT / HIRE SECTION -->
+    <!-- CONTACT SECTION -->
     <section id="contact" class="page-section contact-section">
       <div class="contact-card-master tilt reveal">
         <div class="contact-left">
-          <div class="section-kicker"><span class="kicker-num">05</span> GET IN TOUCH</div>
-          <h2 class="contact-title">LET'S BUILD SOMETHING<br><span class="text-punch">EXTRAORDINARY.</span></h2>
+          <div class="section-kicker"><span class="kicker-num">06</span> GET IN TOUCH</div>
+          <h2 class="contact-title">LET'S BUILD SOMETHING<br><span class="text-punch glow-text">EXTRAORDINARY.</span></h2>
           <p class="contact-p">
-            Whether you have a full-stack project in mind, an exciting engineering role, an internship opportunity, or want to collaborate on cutting-edge software, my inbox and GitHub are always open.
+            I am actively open to web development opportunities, full-stack projects, software engineering internships, and collaborative software ventures. Let's connect directly!
           </p>
 
           <div class="contact-methods">
+            <div class="method-item">
+              <span class="m-icon">💼</span>
+              <div>
+                <span class="m-label">PROFESSIONAL NETWORK</span>
+                <a href="https://www.linkedin.com/in/md-sidik-2428a0325" target="_blank" rel="noreferrer" class="m-val m-link">linkedin.com/in/md-sidik-2428a0325 ↗</a>
+              </div>
+            </div>
+            <div class="method-item">
+              <span class="m-icon">⚡</span>
+              <div>
+                <span class="m-label">CODE PORTFOLIO</span>
+                <a href="https://github.com/sidik11" target="_blank" rel="noreferrer" class="m-val m-link">github.com/sidik11 ↗</a>
+              </div>
+            </div>
             <div class="method-item">
               <span class="m-icon">📍</span>
               <div>
                 <span class="m-label">LOCATION</span>
                 <span class="m-val">Jagatsinghpur, Odisha, India</span>
-              </div>
-            </div>
-            <div class="method-item">
-              <span class="m-icon">💼</span>
-              <div>
-                <span class="m-label">STATUS</span>
-                <span class="m-val text-green">Available for Hiring &amp; Projects</span>
-              </div>
-            </div>
-            <div class="method-item">
-              <span class="m-icon">🌐</span>
-              <div>
-                <span class="m-label">ONLINE RESUME</span>
-                <a href="https://sidik11.github.io/resume/" target="_blank" rel="noreferrer" class="m-val m-link">sidik11.github.io/resume ↗</a>
               </div>
             </div>
           </div>
@@ -655,17 +734,18 @@
           <div class="cta-box">
             <div class="cta-header">
               <span class="cta-dot"></span>
-              <span>COMMUNICATION CHANNEL</span>
+              <span>DIRECT CHANNELS</span>
             </div>
-            <p>Connect with me directly on GitHub or check out my work across repositories.</p>
+            <p>Reach out on LinkedIn or browse through my public work and pull requests on GitHub.</p>
 
             <div class="cta-buttons">
-              <a href="https://github.com/sidik11" target="_blank" rel="noreferrer" class="btn-primary w-full">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                <span>OPEN GITHUB @sidik11 ↗</span>
+              <a href="https://www.linkedin.com/in/md-sidik-2428a0325" target="_blank" rel="noreferrer" class="btn-linkedin w-full">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <span>CONNECT ON LINKEDIN ↗</span>
               </a>
-              <a href="https://sidik11.github.io/resume/" target="_blank" rel="noreferrer" class="btn-secondary w-full">
-                <span>VIEW VERIFIED RESUME ↗</span>
+              <a href="https://github.com/sidik11" target="_blank" rel="noreferrer" class="btn-secondary w-full">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>VISIT GITHUB PROFILE ↗</span>
               </a>
             </div>
           </div>
@@ -679,10 +759,10 @@
     <div class="footer-inner">
       <div class="foot-col-brand">
         <div class="logo">
-          <span class="logo-mark">⚡</span>
+          <span class="logo-spark">⚡</span>
           <span class="logo-text">SIDIK<span class="dot">.</span></span>
         </div>
-        <p class="foot-desc">Designed &amp; Engineered by MD Sidik. Built with high standards, dark cyber aesthetics, and clean web technologies.</p>
+        <p class="foot-desc">Designed &amp; Engineered by MD Sidik. Built with obsidian dark tones, electric crimson glows, and modern web standards.</p>
       </div>
 
       <div class="foot-col-links">
@@ -691,19 +771,20 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#github-stats">Metrics</a>
+        <a href="#contact">Connect</a>
       </div>
 
       <div class="foot-col-links">
-        <span class="foot-title">PROFILES</span>
+        <span class="foot-title">CONNECT</span>
+        <a href="https://www.linkedin.com/in/md-sidik-2428a0325" target="_blank" rel="noreferrer">LinkedIn Profile</a>
         <a href="https://github.com/sidik11" target="_blank" rel="noreferrer">GitHub (36+ Repos)</a>
-        <a href="https://sidik11.github.io/resume/" target="_blank" rel="noreferrer">Interactive Resume</a>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>© 2026 MD SIDIK — ALL RIGHTS RESERVED</span>
-      <span class="foot-tagline">CODE • BUILD • TEST • SHIP</span>
+      <span class="foot-tagline">BUILD • IMPROVE • SHIP</span>
       <a href="#home" class="btn-back-top">BACK TO TOP ↑</a>
     </div>
   </footer>
